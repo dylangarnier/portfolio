@@ -1,6 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { getContent, saveContent, type PortfolioContent } from "@/lib/content-store";
 
+// Note: route placée hors du préfixe /api pour rester accessible derrière l'ingress
+// de l'environnement de preview (où /api est réservé à un autre service).
 export const dynamic = "force-dynamic";
 
 export async function GET() {

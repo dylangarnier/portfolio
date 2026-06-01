@@ -83,7 +83,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("/api/content", { cache: "no-store" });
+        const res = await fetch("/content-store", { cache: "no-store" });
         if (res.ok) {
           const data = await res.json();
           if (data.projects) setProjects(data.projects);
@@ -119,7 +119,7 @@ export default function AdminDashboard() {
         ...override,
       };
       try {
-        const res = await fetch("/api/content", {
+        const res = await fetch("/content-store", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
