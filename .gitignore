@@ -18,3 +18,4 @@ node_modules
 .data/.next/dev/cache/turbopack/ee6e79b1/00000326.sst
 node_modules/@next/swc-linux-arm64-gnu/next-swc.linux-arm64-gnu.node
 node_modules/@next/swc-linux-arm64-musl/next-swc.linux-arm64-musl.node
+.next/dev/cache/turbopack/ee6e79b1/00000326.sst
