@@ -209,65 +209,55 @@ export const projects: Project[] = [
     type: "Professionnel",
   },
   {
-    id: 3,
-    slug: "gsb-gestion-frais",
-    title: "AP 2.5 - GSB Gestion des Frais",
-    shortDescription:
-      "Application web de gestion des fiches de frais des visiteurs médicaux GSB, avec rôles et base de données.",
-    fullDescription:
-      "Application web développée dans le contexte GSB (Galaxy Swiss Bourdin, laboratoire pharmaceutique) permettant aux visiteurs médicaux de saisir et suivre leurs frais de déplacement, et aux comptables de les valider. " +
-      "J'ai conçu la base de données relationnelle (visiteurs, fiches de frais, lignes de frais forfaitaires et hors forfait, états) à partir d'un MCD, puis développé l'application en PHP selon une architecture MVC. " +
-      "Le projet met l'accent sur la gestion des rôles et des droits d'accès : un visiteur ne voit que ses fiches, un comptable accède à la validation. L'authentification est sécurisée (mots de passe hachés, sessions), et l'accès aux données utilise PDO avec des requêtes préparées. L'application gère le cycle de vie d'une fiche (saisie, clôture, validation, remboursement).",
-    context:
-      "Atelier de professionnalisation BTS SIO SLAM — contexte d'entreprise GSB, gestion interne des frais des visiteurs médicaux.",
-    objectives: [
+    "id": 3,
+    "slug": "gsb-gestion-frais",
+    "title": "AP 2.5 - GSB Gestion des Frais",
+    "shortDescription": "Application web de gestion des fiches de frais des visiteurs médicaux GSB, avec gestion des rôles et base de données.",
+    "fullDescription": "Application web développée dans le cadre du projet GSB (Galaxy Swiss Bourdin). Elle permet aux visiteurs médicaux de saisir et suivre leurs frais de déplacement, et aux comptables et gestionnaires d’assurer la validation et la mise en paiement des fiches. J'ai conçu la base de données relationnelle (tables : visiteurs, fiches de frais, lignes de frais forfaitaires et hors forfait, états) à partir d'un MCD, puis réalisé le MLD et le script SQL d'initialisation. L'application a été développée selon une architecture MVC en PHP avec PDO pour l'accès aux données (requêtes préparées). L'authentification est sécurisée (mots de passe hachés, gestion de session) et la gestion des rôles garantit qu'un visiteur ne voit que ses propres fiches tandis que le comptable et le gestionnaire disposent des accès nécessaires pour valider ou mettre en paiement. Le système gère le cycle de vie d'une fiche : saisie → clôture → validation → mise en paiement.",
+    "context": "Atelier de professionnalisation BTS SIO SLAM — contexte d'entreprise GSB, gestion interne des frais des visiteurs médicaux.",
+    "objectives": [
       "Concevoir et implémenter une base de données relationnelle (MCD/MLD)",
       "Développer une application web PHP en architecture MVC",
       "Mettre en place une authentification et une gestion des droits par rôle",
-      "Gérer le cycle de vie des fiches de frais (saisie, validation, remboursement)",
+      "Gérer le cycle de vie des fiches de frais (saisie, clôture, validation, mise en paiement)"
     ],
-    technologies: ["PHP", "MySQL", "PDO", "HTML", "CSS", "MVC"],
-    competences: [
+    "technologies": ["PHP", "MySQL", "PDO", "HTML", "CSS", "MVC", "Git"],
+    "competences": [
       "Gérer le patrimoine informatique",
       "Travailler en mode projet",
-      "Mettre à disposition des utilisateurs un service informatique",
+      "Mettre à disposition des utilisateurs un service informatique"
     ],
-    competencesDetaillees: [
+    "competencesDetaillees": [
       {
-        code: "C1.1",
-        intitule: "Gérer le patrimoine informatique",
-        preuve:
-          "MCD/MLD, script SQL de création de la base et gestion des comptes/rôles utilisateurs.",
-        argumentaire:
-          "Les fiches de frais constituent des données sensibles de l'entreprise. J'ai organisé ce patrimoine informatique : conception de la base, création des tables, et surtout gestion des comptes utilisateurs et de leurs droits (un visiteur n'accède qu'à ses propres fiches, un comptable à la validation). La preuve est le script SQL et la matrice des droits par rôle, qui démontrent que je sais structurer et protéger les données et les accès d'une organisation.",
+        "code": "C1.1",
+        "intitule": "Gérer le patrimoine informatique",
+        "preuve": "MCD/MLD, script SQL de création et de remplissage de la base, matrice des droits par rôle.",
+        "argumentaire": "Les fiches de frais constituent des données sensibles. J'ai conçu la base (MCD → MLD), créé les tables et mis en place la gestion des comptes et des droits (visiteur, comptable, gestionnaire). Le script SQL et la matrice des droits démontrent la structuration et la protection des accès."
       },
       {
-        code: "C1.4",
-        intitule: "Travailler en mode projet",
-        preuve:
-          "Cahier des charges, MCD et découpage des fonctionnalités en lots.",
-        argumentaire:
-          "J'ai mené le projet par étapes : analyse du besoin GSB, conception de la base, puis développement fonctionnalité par fonctionnalité (authentification, saisie, validation). La preuve est l'ensemble des documents de conception et le planning : ils montrent une démarche projet rigoureuse et traçable.",
+        "code": "C1.4",
+        "intitule": "Travailler en mode projet",
+        "preuve": "Cahier des charges, MCD, planning, découpage des fonctionnalités et comptes‑rendus de réunions.",
+        "argumentaire": "Le projet a été conduit par étapes : analyse des besoins, conception, développement itératif des fonctionnalités (authentification, saisie, validation, mise en paiement). Les documents de conception et le planning attestent d'une démarche projet structurée."
       },
       {
-        code: "C1.5",
-        intitule: "Mettre à disposition des utilisateurs un service informatique",
-        preuve:
-          "Comptes de test par rôle, procédure d'installation et tests du parcours visiteur/comptable.",
-        argumentaire:
-          "L'application est utilisable par ses deux profils d'utilisateurs. J'ai préparé des comptes de test, une procédure d'installation et vérifié les parcours visiteur et comptable. La preuve est ce jeu de tests fonctionnels : il atteste que le service est réellement disponible et conforme aux attentes des utilisateurs.",
-      },
+        "code": "C1.5",
+        "intitule": "Mettre à disposition des utilisateurs un service informatique",
+        "preuve": "Procédure d'installation, comptes de test par rôle, rapports de tests fonctionnels et d'intégration.",
+        "argumentaire": "L'application a été déployée localement et testée avec des comptes de test pour chaque rôle. Les scénarios de test et le guide d'installation prouvent que le service est opérationnel et conforme aux besoins des utilisateurs."
+      }
     ],
-    image: "/project-image/gsb.png",
-    gallery: [
+    "image": "/project-image/gsb.png",
+    "gallery": [
       "/gallery/gsb/screenshot-1.png",
       "/gallery/gsb/screenshot-2.png",
       "/gallery/gsb/screenshot-3.png",
-      "/gallery/gsb/screenshot-4.png",
+      "/gallery/gsb/screenshot-4.png"
     ],
-    status: "Terminé",
-    startDate: "2025",
-    type: "Scolaire",
+    "status": "En développement",
+    "startDate": "2025-01-01",
+    "endDate": "2025-01-21",
+    "type": "Scolaire",
   },
   {
     id: 4,
