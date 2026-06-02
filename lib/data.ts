@@ -377,43 +377,6 @@ export const skills: Skill[] = [
   },
 ];
 
-// Structure pour le tableau E5 matriciel
-export type CompetenceC1 = {
-  code: string;
-  titre: string;
-  description: string;
-};
-
-export const competencesC1: CompetenceC1[] = [
-  { code: "C1.1", titre: "Patrimoine", description: "Organiser des fichiers et des droits d'accès" },
-  { code: "C1.2", titre: "Incidents", description: "Résoudre des bugs signalés par des utilisateurs" },
-  { code: "C1.3", titre: "Présence web", description: "Créer un site pour une vraie organisation" },
-  { code: "C1.4", titre: "Projet", description: "Planifier et organiser son travail" },
-  { code: "C1.5", titre: "Déploiement", description: "Tester et livrer une application" },
-  { code: "C1.6", titre: "Dev pro", description: "Se former et faire de la veille technologique" },
-];
-
-export type RealisationE5 = {
-  id: string;
-  code: string;
-  titre: string;
-  contexte: string;
-  categorie: "formation" | "stage1" | "stage2";
-  competences: {
-    c11?: boolean;
-    c12?: boolean;
-    c13?: boolean;
-    c14?: boolean;
-    c15?: boolean;
-    c16?: boolean;
-  };
-  preuves?: {
-    competence: string;
-    preuve: string;
-    description: string;
-  }[];
-};
-
 export const realisationsE5: RealisationE5[] = [
   {
     id: "site-dynamique-m2l",
@@ -421,132 +384,119 @@ export const realisationsE5: RealisationE5[] = [
     titre: "Site Dynamique M2L",
     contexte: "Formation - Lycée Gustave Eiffel",
     categorie: "formation",
-    competences: { c13: true, c14: true, c15: true },
+    competences: {
+      c13: true,
+      c14: true,
+    },
     preuves: [
-      { competence: "C1.3", preuve: "Code PHP/MVC + schéma de la base MySQL + captures des pages dynamiques", description: "J'ai développé un site dynamique qui lit son contenu dans une base MySQL : ajouter une actualité en base l'affiche aussitôt sur le site, ce qui prouve le développement de la présence en ligne de l'organisation." },
-      { competence: "C1.4", preuve: "Cahier des charges, MCD/MLD et planning des tâches", description: "J'ai analysé le besoin, conçu la base puis découpé et planifié le développement (modèles, vues, tests), ce qui démontre une vraie conduite de projet." },
-      { competence: "C1.5", preuve: "Script SQL d'import + configuration PDO + tests fonctionnels", description: "J'ai rendu l'application installable et utilisable par un tiers grâce à une procédure reproductible, ce qui correspond à la mise à disposition d'un service." },
-    ],
+      {
+        competence: "C1.3",
+        preuve: "Code PHP/MVC + schéma de la base MySQL + captures des pages dynamiques",
+        description: "Développement d'un site dynamique alimenté par une base MySQL."
+      },
+      {
+        competence: "C1.4",
+        preuve: "Cahier des charges, MCD/MLD et planning",
+        description: "Organisation et suivi du projet de développement."
+      }
+    ]
   },
+
   {
-    id: "stage-ferme-laroche",
-    code: "Stage",
-    titre: "Ferme Laroche",
-    contexte: "Stage - Site vitrine",
-    categorie: "stage1",
-    competences: { c13: true, c15: true, c16: true },
+    id: "ticketing",
+    code: "AP 1.2",
+    titre: "Ticketing",
+    contexte: "Formation - Lycée Gustave Eiffel",
+    categorie: "formation",
+    competences: {
+      c12: true,
+    },
     preuves: [
-      { competence: "C1.3", preuve: "Captures du site vitrine en ligne + balises SEO (title, meta, Hn, alt)", description: "J'ai créé et référencé un site vitrine responsive pour un vrai commanditaire qui n'avait aucune présence en ligne, afin qu'il soit trouvé sur Google." },
-      { competence: "C1.5", preuve: "Capture du site déployé sur l'hébergement + tests multi-navigateurs", description: "J'ai mis le site en production (hébergement, domaine, tests d'affichage), ce qui prouve la mise à disposition effective d'un service auprès des utilisateurs." },
-      { competence: "C1.6", preuve: "Fiches de veille SEO et responsive design", description: "Je me suis formé en autonomie au SEO via une veille puis je l'ai appliqué au site : j'ai organisé mon développement professionnel." },
-    ],
+      {
+        competence: "C1.2",
+        preuve: "Compte rendu d'incident + ticket de suivi + correction du bug",
+        description: "Diagnostic et résolution d'un incident signalé par un utilisateur."
+      }
+    ]
   },
+
   {
     id: "gsb-gestion-frais",
     code: "AP 2.5",
     titre: "GSB Gestion des Frais",
     contexte: "Formation - Lycée Gustave Eiffel",
     categorie: "formation",
-    competences: { c11: true, c14: true, c15: true },
+    competences: {
+      c11: true,
+      c14: true,
+    },
     preuves: [
-      { competence: "C1.1", preuve: "MCD/MLD, script SQL et matrice des droits par rôle", description: "J'ai structuré et protégé un patrimoine de données sensibles (fiches de frais) avec des comptes et des droits différenciés visiteur / comptable." },
-      { competence: "C1.4", preuve: "Cahier des charges et découpage des fonctionnalités en lots", description: "J'ai mené le projet par étapes, de l'analyse du besoin GSB jusqu'au développement fonctionnalité par fonctionnalité." },
-      { competence: "C1.5", preuve: "Comptes de test par rôle + procédure d'installation + tests des parcours", description: "J'ai rendu l'application utilisable par ses deux profils et vérifié les parcours, ce qui atteste la mise à disposition du service." },
-    ],
+      {
+        competence: "C1.1",
+        preuve: "MCD/MLD, script SQL et gestion des droits",
+        description: "Organisation et sécurisation des données."
+      },
+      {
+        competence: "C1.4",
+        preuve: "Découpage fonctionnel et planning",
+        description: "Gestion du projet de développement."
+      }
+    ]
   },
+
   {
     id: "vivonsexpo-exposition",
     code: "AP 4.1",
     titre: "VivonsExpo",
     contexte: "Formation - Lycée Gustave Eiffel",
     categorie: "formation",
-    competences: { c11: true, c14: true, c16: true },
+    competences: {
+      c11: true,
+      c13: true,
+    },
     preuves: [
-      { competence: "C1.1", preuve: "MCD/MLD, script SQL et fichier Excel de structuration/contrôle", description: "J'ai recensé, structuré et fiabilisé le patrimoine de données de VivonsExpo (œuvres, artistes, expositions) entre la base MySQL et Excel." },
-      { competence: "C1.4", preuve: "Document d'analyse des besoins, MCD et planning de développement", description: "J'ai conduit le projet de l'analyse des besoins au développement en passant par la modélisation : une démarche projet complète." },
-      { competence: "C1.6", preuve: "Documentation technique + veille sur la modélisation (MCD/MLD)", description: "Je me suis formé aux bonnes pratiques de modélisation pour un domaine nouveau et j'ai capitalisé ma démarche dans une documentation." },
-    ],
+      {
+        competence: "C1.1",
+        preuve: "MCD/MLD et structuration des données",
+        description: "Gestion du patrimoine de données."
+      },
+      {
+        competence: "C1.3",
+        preuve: "Interface web de consultation",
+        description: "Valorisation des données via une application web."
+      }
+    ]
   },
-];
 
-// Ancienne structure conservée pour compatibilité
-export type CompetenceE5 = {
-  id: string;
-  code: string;
-  titre: string;
-  activites: {
-    code: string;
-    titre: string;
-    realisations: {
-      projet: string;
-      description: string;
-      periode: string;
-    }[];
-  }[];
-};
-
-export const competencesE5: CompetenceE5[] = [
   {
-    id: "b1",
-    code: "B1",
-    titre: "Support et mise à disposition de services informatiques",
-    activites: [
+    id: "stage-ferme-laroche",
+    code: "Stage",
+    titre: "Ferme Laroche",
+    contexte: "Stage - Site vitrine",
+    categorie: "stage1",
+    competences: {
+      c13: true,
+      c15: true,
+      c16: true,
+    },
+    preuves: [
       {
-        code: "B1.3",
-        titre: "Développer la présence en ligne de l'organisation",
-        realisations: [
-          {
-            projet: "Site Dynamique M2L",
-            description: "Développement d'un site dynamique avec PHP et MySQL",
-            periode: "Formation",
-          },
-          {
-            projet: "Site Statique Réservation M2L",
-            description: "Création d'un site HTML/CSS responsive",
-            periode: "Formation",
-          },
-          {
-            projet: "Stage Ferme Laroche",
-            description: "Site vitrine responsive avec optimisation SEO",
-            periode: "Stage",
-          },
-        ],
+        competence: "C1.3",
+        preuve: "Site vitrine responsive + SEO",
+        description: "Création de la présence en ligne."
       },
       {
-        code: "B1.4",
-        titre: "Travailler en mode projet",
-        realisations: [
-          {
-            projet: "Site Dynamique M2L",
-            description: "Planification et organisation du développement",
-            periode: "Formation",
-          },
-        ],
+        competence: "C1.5",
+        preuve: "Site déployé chez l'hébergeur",
+        description: "Mise à disposition du service."
       },
       {
-        code: "B1.5",
-        titre: "Mettre à disposition des utilisateurs un service informatique",
-        realisations: [
-          {
-            projet: "Stage Ferme Laroche",
-            description: "Déploiement du site vitrine en ligne",
-            periode: "Stage",
-          },
-        ],
-      },
-      {
-        code: "B1.6",
-        titre: "Organiser son développement professionnel",
-        realisations: [
-          {
-            projet: "Stage Ferme Laroche",
-            description: "Veille technologique sur le SEO et le responsive",
-            periode: "Stage",
-          },
-        ],
-      },
-    ],
-  },
+        competence: "C1.6",
+        preuve: "Veille SEO et responsive design",
+        description: "Développement professionnel."
+      }
+    ]
+  }
 ];
 
 // Sources de veille Feedly
