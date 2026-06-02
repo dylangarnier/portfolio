@@ -210,57 +210,6 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    slug: "site-statique-reservation-m2l",
-    title: "Site Statique Réservation M2L",
-    shortDescription:
-      "Site statique HTML/CSS responsive présentant le système de réservation de salles de la M2L.",
-    fullDescription:
-      "Ce projet est une première étape autour du contexte M2L : un site statique en HTML5 et CSS3 destiné à présenter le service de réservation de salles et d'équipements de la Maison des Ligues. " +
-      "L'objectif pédagogique était de maîtriser les fondamentaux du Web avant d'aborder le dynamique : structure HTML sémantique (header, nav, main, section, footer), mise en page moderne en CSS (Flexbox et Grid), design responsive avec media queries, et respect des bonnes pratiques d'accessibilité (contrastes, attributs alt, navigation au clavier). " +
-      "J'ai produit plusieurs pages cohérentes (accueil, présentation des salles, modalités de réservation, contact) avec une charte graphique homogène et une navigation claire.",
-    context:
-      "Projet de formation BTS SIO SLAM au Lycée Gustave Eiffel — fondamentaux HTML/CSS et accessibilité.",
-    objectives: [
-      "Maîtriser le HTML5 sémantique et structurer correctement les pages",
-      "Réaliser une mise en page responsive avec Flexbox/Grid et media queries",
-      "Appliquer les bonnes pratiques d'accessibilité (alt, contrastes, navigation)",
-      "Mettre en place une charte graphique cohérente sur l'ensemble du site",
-    ],
-    technologies: ["HTML", "CSS", "Responsive", "Accessibilité"],
-    competences: [
-      "Développer la présence en ligne de l'organisation",
-      "Travailler en mode projet",
-    ],
-    competencesDetaillees: [
-      {
-        code: "C1.3",
-        intitule: "Développer la présence en ligne de l'organisation",
-        preuve:
-          "Captures des pages desktop et mobile + code HTML/CSS sémantique et responsive.",
-        argumentaire:
-          "J'ai construit le support en ligne présentant le service de réservation de la M2L. Le site est responsive et accessible, ce qui le rend consultable par tous. La preuve est le rendu des pages sur ordinateur et mobile accompagné du code HTML sémantique : il démontre ma capacité à créer la présence en ligne d'une organisation en respectant les standards du Web.",
-      },
-      {
-        code: "C1.4",
-        intitule: "Travailler en mode projet",
-        preuve:
-          "Maquette/arborescence du site et planning des pages à réaliser.",
-        argumentaire:
-          "J'ai d'abord défini l'arborescence et une maquette avant d'intégrer, puis suivi un planning page par page. La preuve est cette maquette et le découpage des tâches : ils montrent que j'ai organisé mon travail de manière structurée, en mode projet, du cadrage à la livraison.",
-      },
-    ],
-    image: "/project-image/m2l-statique.png",
-    gallery: [
-      "/gallery/m2l-statique/screenshot-1.png",
-      "/gallery/m2l-statique/screenshot-2.png",
-      "/gallery/m2l-statique/screenshot-3.png",
-    ],
-    status: "Terminé",
-    startDate: "2025",
-    type: "Scolaire",
-  },
-  {
-    id: 4,
     slug: "gsb-gestion-frais",
     title: "AP 2.5 - GSB Gestion des Frais",
     shortDescription:
@@ -321,67 +270,7 @@ export const projects: Project[] = [
     type: "Scolaire",
   },
   {
-    id: 5,
-    slug: "aux-claviers-citoyens",
-    title: "AP 3.2 - Aux Claviers Citoyens",
-    shortDescription:
-      "API REST documentée (Swagger) pour gérer adhérents, ateliers et inscriptions d'une association.",
-    fullDescription:
-      "Conception et développement d'une API REST pour l'association « Aux Claviers Citoyens », qui organise des ateliers d'initiation à l'informatique pour le grand public. L'API centralise la gestion des adhérents, des ateliers, des animateurs et des inscriptions, et pourra alimenter aussi bien un site web qu'une application mobile. " +
-      "J'ai modélisé les ressources et leurs relations, puis implémenté les opérations CRUD via des routes REST respectant les conventions (verbes HTTP GET/POST/PUT/DELETE, codes de statut appropriés, réponses au format JSON). " +
-      "L'API est documentée avec Swagger/OpenAPI : chaque endpoint est décrit (paramètres, corps de requête, réponses), ce qui permet de la tester directement et facilite son intégration. J'ai également travaillé la sécurisation des accès et la validation des données entrantes.",
-    context:
-      "Atelier de professionnalisation BTS SIO SLAM — conception d'une API RESTful pour une association.",
-    objectives: [
-      "Modéliser les ressources et concevoir une API REST conforme aux bonnes pratiques",
-      "Implémenter les opérations CRUD avec les bons verbes HTTP et codes de statut",
-      "Documenter l'API avec Swagger/OpenAPI",
-      "Valider les données entrantes et sécuriser les endpoints",
-    ],
-    technologies: ["PHP", "MySQL", "API REST", "Swagger / OpenAPI", "JSON"],
-    competences: [
-      "Développer la présence en ligne de l'organisation",
-      "Travailler en mode projet",
-      "Organiser son développement professionnel",
-    ],
-    competencesDetaillees: [
-      {
-        code: "C1.3",
-        intitule: "Développer la présence en ligne de l'organisation",
-        preuve:
-          "Documentation Swagger de l'API et captures des endpoints renvoyant du JSON.",
-        argumentaire:
-          "J'ai doté l'association d'un service en ligne réutilisable : une API REST qui expose ses données (adhérents, ateliers, inscriptions) et peut alimenter un site ou une application. La preuve est la documentation Swagger et les réponses JSON des endpoints : elles montrent que j'ai développé un point d'accès en ligne moderne pour l'organisation.",
-      },
-      {
-        code: "C1.4",
-        intitule: "Travailler en mode projet",
-        preuve:
-          "Cahier des charges, modélisation des ressources et liste des routes planifiées.",
-        argumentaire:
-          "J'ai cadré le projet en modélisant d'abord les ressources et les routes nécessaires, puis en développant et testant chaque endpoint. La preuve est la documentation de conception (modèle de données + tableau des routes) qui démontre une conduite de projet méthodique.",
-      },
-      {
-        code: "C1.6",
-        intitule: "Organiser son développement professionnel",
-        preuve:
-          "Fiche de veille sur les bonnes pratiques des API REST (REST, codes HTTP, OpenAPI).",
-        argumentaire:
-          "Concevoir une API « propre » demandait de connaître les conventions REST. J'ai mené une veille (architecture REST, codes HTTP, standard OpenAPI) que j'ai appliquée directement au projet. La preuve est ma fiche de veille : elle illustre ma capacité à me former de façon autonome sur une technologie nouvelle pour réussir une réalisation.",
-      },
-    ],
-    image: "/project-image/claviers-citoyens.png",
-    gallery: [
-      "/gallery/claviers-citoyens/screenshot-1.png",
-      "/gallery/claviers-citoyens/screenshot-2.png",
-      "/gallery/claviers-citoyens/screenshot-3.png",
-    ],
-    status: "Terminé",
-    startDate: "2026",
-    type: "Scolaire",
-  },
-  {
-    id: 6,
+    id: 4,
     slug: "vivonsexpo-exposition",
     title: "AP 4.1 - VivonsExpo",
     shortDescription:
@@ -398,7 +287,7 @@ export const projects: Project[] = [
       "Développer la gestion des expositions, œuvres et artistes",
       "Mettre en place le suivi des visiteurs et la cohérence des données",
     ],
-    technologies: ["PHP", "MySQL", "HTML", "CSS", "Excel", "MCD/MLD"],
+    technologies: ["Android", "MySQL", "Excel", "MCD/MLD"],
     competences: [
       "Gérer le patrimoine informatique",
       "Travailler en mode projet",
@@ -550,18 +439,6 @@ export const realisationsE5: RealisationE5[] = [
     ],
   },
   {
-    id: "site-statique-m2l",
-    code: "AP 2.3",
-    titre: "Site Statique Réservation M2L",
-    contexte: "Formation - Lycée Gustave Eiffel",
-    categorie: "formation",
-    competences: { c13: true, c14: true },
-    preuves: [
-      { competence: "C1.3", preuve: "Captures desktop + mobile et code HTML/CSS sémantique et responsive", description: "J'ai créé le support en ligne présentant le service de réservation M2L, responsive et accessible, ce qui démontre le développement de la présence en ligne." },
-      { competence: "C1.4", preuve: "Maquette / arborescence et planning des pages", description: "J'ai défini l'arborescence et une maquette avant d'intégrer, puis suivi un planning page par page : une démarche projet structurée." },
-    ],
-  },
-  {
     id: "stage-ferme-laroche",
     code: "Stage",
     titre: "Ferme Laroche",
@@ -585,19 +462,6 @@ export const realisationsE5: RealisationE5[] = [
       { competence: "C1.1", preuve: "MCD/MLD, script SQL et matrice des droits par rôle", description: "J'ai structuré et protégé un patrimoine de données sensibles (fiches de frais) avec des comptes et des droits différenciés visiteur / comptable." },
       { competence: "C1.4", preuve: "Cahier des charges et découpage des fonctionnalités en lots", description: "J'ai mené le projet par étapes, de l'analyse du besoin GSB jusqu'au développement fonctionnalité par fonctionnalité." },
       { competence: "C1.5", preuve: "Comptes de test par rôle + procédure d'installation + tests des parcours", description: "J'ai rendu l'application utilisable par ses deux profils et vérifié les parcours, ce qui atteste la mise à disposition du service." },
-    ],
-  },
-  {
-    id: "aux-claviers-citoyens",
-    code: "AP 3.2",
-    titre: "Aux Claviers Citoyens",
-    contexte: "Formation - Lycée Gustave Eiffel",
-    categorie: "formation",
-    competences: { c13: true, c14: true, c16: true },
-    preuves: [
-      { competence: "C1.3", preuve: "Documentation Swagger de l'API + captures des endpoints JSON", description: "J'ai exposé en ligne les données de l'association via une API REST réutilisable par un site ou une application, ce qui développe sa présence en ligne." },
-      { competence: "C1.4", preuve: "Cahier des charges, modélisation des ressources et tableau des routes", description: "J'ai cadré le projet en modélisant ressources et routes avant de développer et tester chaque endpoint : une conduite de projet méthodique." },
-      { competence: "C1.6", preuve: "Fiche de veille sur les bonnes pratiques des API REST / OpenAPI", description: "Je me suis documenté sur REST, les codes HTTP et OpenAPI puis je les ai appliqués : organisation de mon développement professionnel." },
     ],
   },
   {
