@@ -207,21 +207,21 @@ export const projects: Project[] = [
     status: "Terminé",
     startDate: "2026",
     type: "Professionnel",
-  },
-  {
+    },
+    {
     "id": 3,
     "slug": "gsb-gestion-frais",
     "title": "AP 2.5 - GSB Gestion des Frais",
-    "shortDescription": "Application web de gestion des fiches de frais des visiteurs médicaux GSB, avec gestion des rôles et base de données.",
-    "fullDescription": "Application web développée dans le cadre du projet GSB (Galaxy Swiss Bourdin). Elle permet aux visiteurs médicaux de saisir et suivre leurs frais de déplacement, et aux comptables et gestionnaires d’assurer la validation et la mise en paiement des fiches. J'ai conçu la base de données relationnelle (tables : visiteurs, fiches de frais, lignes de frais forfaitaires et hors forfait, états) à partir d'un MCD, puis réalisé le MLD et le script SQL d'initialisation. L'application a été développée selon une architecture MVC en PHP avec PDO pour l'accès aux données (requêtes préparées). L'authentification est sécurisée (mots de passe hachés, gestion de session) et la gestion des rôles garantit qu'un visiteur ne voit que ses propres fiches tandis que le comptable et le gestionnaire disposent des accès nécessaires pour valider ou mettre en paiement. Le système gère le cycle de vie d'une fiche : saisie → clôture → validation → mise en paiement.",
+    "shortDescription": "Application Java/JavaFX de gestion des fiches de frais des visiteurs médicaux GSB, avec gestion des rôles et base de données.",
+    "fullDescription": "Application développée dans le cadre du projet GSB (Galaxy Swiss Bourdin). Elle permet aux visiteurs médicaux de saisir et suivre leurs frais de déplacement, et aux comptables et gestionnaires d’assurer la validation et la mise en paiement des fiches. J'ai conçu la base de données relationnelle (tables : visiteurs, fiches de frais, lignes de frais forfaitaires et hors forfait, états) à partir d'un MCD, puis réalisé le MLD et le script SQL d'initialisation. L'application a été développée en Java avec JavaFX (Scene Builder) selon une architecture MVC. L'accès aux données utilise JDBC/MySQL via des classes DAO bien structurées. L'authentification est sécurisée (mots de passe hachés, gestion de session) et la gestion des rôles garantit qu'un visiteur ne voit que ses propres fiches tandis que le comptable et le gestionnaire disposent des accès nécessaires pour valider ou mettre en paiement. Le système gère le cycle de vie d'une fiche : saisie → clôture → validation → mise en paiement. La partie d'authentification est opérationnelle ; le reste des fonctionnalités est en cours de développement.",
     "context": "Atelier de professionnalisation BTS SIO SLAM — contexte d'entreprise GSB, gestion interne des frais des visiteurs médicaux.",
     "objectives": [
       "Concevoir et implémenter une base de données relationnelle (MCD/MLD)",
-      "Développer une application web PHP en architecture MVC",
+      "Développer une application Java/JavaFX en architecture MVC",
       "Mettre en place une authentification et une gestion des droits par rôle",
       "Gérer le cycle de vie des fiches de frais (saisie, clôture, validation, mise en paiement)"
     ],
-    "technologies": ["PHP", "MySQL", "PDO", "HTML", "CSS", "MVC", "Git"],
+    "technologies": ["Java", "JavaFX", "Scene Builder", "MySQL", "JDBC", "MVC", "IntelliJ", "Git"],
     "competences": [
       "Gérer le patrimoine informatique",
       "Travailler en mode projet",
