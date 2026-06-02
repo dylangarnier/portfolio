@@ -13,20 +13,26 @@ export const metadata = {
 
 export const dynamic = "force-dynamic";
 
+function getCompKey(comp: any) {
+  // Prefer explicit key if provided, otherwise normalize the code (ex: "C1.1" -> "c11")
+  if (comp.key) return comp.key;
+  return comp.code.toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
 export default async function TableauE5Page() {
   const { realisationsE5 } = await getContent();
   const formationRealisations = realisationsE5.filter((r) => r.categorie === "formation");
   const stage1Realisations = realisationsE5.filter((r) => r.categorie === "stage1");
   const stage2Realisations = realisationsE5.filter((r) => r.categorie === "stage2");
 
-  const totals = {
-    c11: realisationsE5.filter((r) => r.competences.c11).length,
-    c12: realisationsE5.filter((r) => r.competences.c12).length,
-    c13: realisationsE5.filter((r) => r.competences.c13).length,
-    c14: realisationsE5.filter((r) => r.competences.c14).length,
-    c15: realisationsE5.filter((r) => r.competences.c15).length,
-    c16: realisationsE5.filter((r) => r.competences.c16).length,
-  };
+  // Build dynamic totals based on competencesC1
+  const compKeys = competencesC1.map(getCompKey);
+  const totals: Record<string, number> = {};
+  compKeys.forEach((key) => {
+    totals[key] = realisationsE5.filter((r) => r.competences && r.competences[key]).length;
+  });
+
+  const colCount = 1 + competencesC1.length; // 1 for "Réalisation" + one column per compétence
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -68,7 +74,7 @@ export default async function TableauE5Page() {
                   </th>
                   {competencesC1.map((comp) => (
                     <th
-                      key={comp.code}
+                      key={getCompKey(comp)}
                       className="text-center py-4 px-2 font-medium text-muted-foreground"
                     >
                       <div className="flex flex-col items-center gap-1">
@@ -84,7 +90,7 @@ export default async function TableauE5Page() {
                 {/* Section Formation */}
                 <tr>
                   <td
-                    colSpan={7}
+                    colSpan={colCount}
                     className="py-3 px-4 bg-amber-500/20 text-amber-300 font-medium text-sm"
                   >
                     En cours de formation - Lycée Gustave Eiffel
@@ -99,7 +105,7 @@ export default async function TableauE5Page() {
                   <>
                     <tr>
                       <td
-                        colSpan={7}
+                        colSpan={colCount}
                         className="py-3 px-4 bg-primary/20 text-primary font-medium text-sm"
                       >
                         Milieu professionnel — Stage
@@ -116,7 +122,7 @@ export default async function TableauE5Page() {
                   <>
                     <tr>
                       <td
-                        colSpan={7}
+                        colSpan={colCount}
                         className="py-3 px-4 bg-primary/20 text-primary font-medium text-sm"
                       >
                         Milieu professionnel — Stage 2ème année
@@ -131,24 +137,14 @@ export default async function TableauE5Page() {
                 {/* Ligne Total */}
                 <tr className="border-t-2 border-border">
                   <td className="py-4 px-4 font-bold text-foreground">Total</td>
-                  <td className="py-4 px-2 text-center">
-                    <TotalCell count={totals.c11} />
-                  </td>
-                  <td className="py-4 px-2 text-center">
-                    <TotalCell count={totals.c12} />
-                  </td>
-                  <td className="py-4 px-2 text-center">
-                    <TotalCell count={totals.c13} />
-                  </td>
-                  <td className="py-4 px-2 text-center">
-                    <TotalCell count={totals.c14} />
-                  </td>
-                  <td className="py-4 px-2 text-center">
-                    <TotalCell count={totals.c15} />
-                  </td>
-                  <td className="py-4 px-2 text-center">
-                    <TotalCell count={totals.c16} />
-                  </td>
+                  {competencesC1.map((comp) => {
+                    const key = getCompKey(comp);
+                    return (
+                      <td key={key} className="py-4 px-2 text-center">
+                        <TotalCell count={totals[key] ?? 0} />
+                      </td>
+                    );
+                  })}
                 </tr>
               </tbody>
             </table>
@@ -223,7 +219,7 @@ export default async function TableauE5Page() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {competencesC1.map((comp) => (
                 <div
-                  key={comp.code}
+                  key={getCompKey(comp)}
                   className="bg-card border border-border rounded-lg p-4"
                 >
                   <div className="flex items-center gap-2 mb-2">
@@ -255,24 +251,14 @@ function RealisationRow({ realisation }: { realisation: RealisationE5 }) {
         </div>
         <div className="text-xs text-muted-foreground mt-1">{realisation.contexte}</div>
       </td>
-      <td className="py-4 px-2 text-center">
-        <CompetenceCell active={realisation.competences.c11} />
-      </td>
-      <td className="py-4 px-2 text-center">
-        <CompetenceCell active={realisation.competences.c12} />
-      </td>
-      <td className="py-4 px-2 text-center">
-        <CompetenceCell active={realisation.competences.c13} />
-      </td>
-      <td className="py-4 px-2 text-center">
-        <CompetenceCell active={realisation.competences.c14} />
-      </td>
-      <td className="py-4 px-2 text-center">
-        <CompetenceCell active={realisation.competences.c15} />
-      </td>
-      <td className="py-4 px-2 text-center">
-        <CompetenceCell active={realisation.competences.c16} />
-      </td>
+      {competencesC1.map((comp) => {
+        const key = getCompKey(comp);
+        return (
+          <td key={key} className="py-4 px-2 text-center">
+            <CompetenceCell active={realisation.competences && realisation.competences[key]} />
+          </td>
+        );
+      })}
     </tr>
   );
 }
